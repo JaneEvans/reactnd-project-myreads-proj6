@@ -21,7 +21,7 @@ class MainPage extends Component {
                                     .filter(book => book.shelf === "currentlyReading")
                                     .map(book => (
                                         <li key={book.id}>
-                                            <Books book={book} />
+                                            <Books book={book} selectOption={this.props.selectOption}/>
                                         </li>
                                         )
                                     )
@@ -38,7 +38,7 @@ class MainPage extends Component {
                                     .filter(book => book.shelf === "wantToRead")
                                     .map(book => (
                                         <li key={book.id}>
-                                            <Books book={book}/>
+                                            <Books book={book} selectOption={this.props.selectOption}/>
                                         </li>
                                         )
                                     )
@@ -55,7 +55,7 @@ class MainPage extends Component {
                                     .filter(book => book.shelf === "read")
                                     .map(book => (
                                         <li key={book.id}>
-                                            <Books book={book}/>
+                                            <Books book={book} selectOption={this.props.selectOption}/>
                                         </li>
                                         )
                                     )

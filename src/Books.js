@@ -5,10 +5,9 @@ class Books extends Component {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.smallThumbnail})` }}>
-                    </div>
+                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.smallThumbnail})` }} />
                     <div className="book-shelf-changer">
-                        <select>
+                        <select onChange={(e) => {this.props.selectOption(this.props.book, e.target.value)}} value='move'>
                             <option value="move" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
