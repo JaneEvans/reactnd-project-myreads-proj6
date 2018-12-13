@@ -29,7 +29,9 @@ class SearchPage extends Component {
 
     render() {
         const {query, searchedBookList} = this.state;
-        console.log(searchedBookList);
+
+        let bookList = searchedBookList.error ? [] : searchedBookList;
+
         return (
         <div className="search-books">
             <div className="search-books-bar">
@@ -47,7 +49,7 @@ class SearchPage extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-                {searchedBookList.map((searchedBook) => (
+                {bookList.map((searchedBook) => (
                                         <li key={searchedBook.id}>
                                             <Books
                                                 book={searchedBook}
