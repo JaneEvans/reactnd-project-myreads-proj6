@@ -23,7 +23,7 @@ class MainPage extends Component {
                                 {
                                 bookList
                                     .filter(book => book.shelf === "currentlyReading")
-                                    .map(book => (
+                                    .map((book) => (
                                         <li key={book.id}>
                                             <Books
                                                 book={book}

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import * as BooksAPI from './BooksAPI';
+import Books from './Books';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
@@ -8,17 +10,26 @@ class SearchPage extends Component {
         searchedBookList: []
     }
 
-    updateQuery = (query) => {
-        this.setState({query: query })
+    getSearchedBookList = (query) => {
+        if(query) {
+            BooksAPI.search(query).then((searchedBookList) => {
+                this.setState({searchedBookList});
+            })
+        }else {
+            this.setState({searchedBookList: []});
+        }
+        
     }
 
-    clearQuery = () => {
-        this.setState({query: ''})
+    updateQuery = (query) => {
+        this.setState({query});
+        this.getSearchedBookList(query);
     }
+
 
     render() {
-        const {query} = this.state
-
+        const {query, searchedBookList} = this.state;
+        console.log(searchedBookList);
         return (
         <div className="search-books">
             <div className="search-books-bar">
@@ -36,7 +47,12 @@ class SearchPage extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-
+                {searchedBookList.map((searchedBook) => (
+                                        <li key={searchedBook.id}>
+                                            <Books
+                                                book={searchedBook}
+                                            />
+                                        </li>))}
               </ol>
             </div>
         </div>
