@@ -4,16 +4,11 @@ import * as BooksAPI from './BooksAPI';
 
 
 class MainPage extends Component {
-    selectOption = (book, shelf) => {
-        BooksAPI.update(book, shelf)
-    
-        BooksAPI.getAll().then((bookList) => {
-          this.setState({bookList})
-        })
-      }
 
     render() {
-        console.log(this.props.bookList);
+        const {bookList, selectOption} = this.props;
+
+        console.log(bookList);
         return (
         <div className="list-books">
             <div className="list-books-title">
@@ -26,13 +21,13 @@ class MainPage extends Component {
                         <div className="bookshelf-books">
                             <ol className="books-grid">
                                 {
-                                this.props.bookList
+                                bookList
                                     .filter(book => book.shelf === "currentlyReading")
                                     .map(book => (
                                         <li key={book.id}>
                                             <Books
                                                 book={book}
-                                                selectOption={this.props.selectOption}
+                                                selectOption={selectOption}
                                             />
                                         </li>
                                         )
@@ -46,13 +41,13 @@ class MainPage extends Component {
                         <div className="bookshelf-books">
                             <ol className="books-grid">
                                 {
-                                this.props.bookList
+                                bookList
                                     .filter(book => book.shelf === "wantToRead")
                                     .map(book => (
                                         <li key={book.id}>
                                             <Books
                                                 book={book}
-                                                selectOption={this.props.selectOption}
+                                                selectOption={selectOption}
                                             />
                                         </li>
                                         )
@@ -66,13 +61,13 @@ class MainPage extends Component {
                         <div className="bookshelf-books">
                             <ol className="books-grid">
                                 {
-                                this.props.bookList
+                                bookList
                                     .filter(book => book.shelf === "read")
                                     .map(book => (
                                         <li key={book.id}>
                                             <Books
                                                 book={book}
-                                                selectOption={this.props.selectOption}
+                                                selectOption={selectOption}
                                             />
                                         </li>
                                         )

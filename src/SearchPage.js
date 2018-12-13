@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
+import escapeRegExp from 'escape-string-regexp';
+import sortBy from 'sort-by';
 
 class SearchPage extends Component {
     state = {
-        query:''
+        query: '',
+        searchedBookList: []
     }
 
     updateQuery = (query) => {
@@ -14,6 +17,8 @@ class SearchPage extends Component {
     }
 
     render() {
+        const {query} = this.state
+
         return (
         <div className="search-books">
             <div className="search-books-bar">
@@ -24,13 +29,15 @@ class SearchPage extends Component {
                     <input 
                         type="text" 
                         placeholder="Search by title or author"
-                        value={this.state.query}
+                        value={query}
                         onChange={(e) => this.updateQuery(e.target.value)}
                     />
                 </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
+
+              </ol>
             </div>
         </div>
         );

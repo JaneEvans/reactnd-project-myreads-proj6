@@ -6,7 +6,7 @@ import MainPage from './MainPage';
 
 class BooksApp extends React.Component {
   state={
-    bookList:[]
+    bookList: []
   }
 
   componentDidMount() {
