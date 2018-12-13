@@ -28,10 +28,11 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <MainPage
+        {/* <MainPage
           bookList={this.state.bookList}
           selectOption={this.selectOption}
-        />
+        /> */}
+        <SearchPage/>
       </div>
     )
   }

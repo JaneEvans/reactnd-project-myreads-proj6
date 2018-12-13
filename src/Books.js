@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
+import * as BooksAPI from './BooksAPI';
 
 class Books extends Component {
+
+    // selectOption = (book, shelf) => {
+    //     BooksAPI.update(book, shelf)
+    
+    //     BooksAPI.getAll().then((bookList) => {
+    //       this.setState({bookList})
+    //     })
+    //   }
+
     render() {
         return (
             <div className="book">
