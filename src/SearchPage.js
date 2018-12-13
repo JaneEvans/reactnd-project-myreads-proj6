@@ -29,8 +29,7 @@ class SearchPage extends Component {
 
     render() {
         const {query, searchedBookList} = this.state;
-
-        let bookList = searchedBookList.error ? [] : searchedBookList;
+        let bookList = searchedBookList.items ? [] : searchedBookList;
 
         return (
         <div className="search-books">
@@ -41,7 +40,7 @@ class SearchPage extends Component {
                 <div className="search-books-input-wrapper">
                     <input 
                         type="text" 
-                        placeholder="Search by title or author"
+                        placeholder="Search by book title"
                         value={query}
                         onChange={(e) => this.updateQuery(e.target.value)}
                     />

@@ -5,8 +5,8 @@ class Books extends Component {
 
     render() {
         const {book, selectOption} = this.props
-        let ImgURL = book.imageLinks ? book.imageLinks.smallThumbnail: '';
-
+        let ImgURL = book.imageLinks ? book.imageLinks.Thumbnail: '';
+        let Authors = book.authors ? book.authors: '';
         return (
             <div className="book">
                 <div className="book-top">
@@ -22,7 +22,7 @@ class Books extends Component {
                     </div>
                 </div>
                 <div className="book-title">{book.title}</div>
-                <div className="book-authors">{book.authors}</div>
+                <div className="book-authors">{Authors}</div>
             </div>
         );
     }
