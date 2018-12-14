@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import * as BooksAPI from './BooksAPI';
 import Books from './Books';
+import {Link} from 'react-router-dom';
 // import escapeRegExp from 'escape-string-regexp';
 // import sortBy from 'sort-by';
 
@@ -37,9 +38,11 @@ class SearchPage extends Component {
         return (
         <div className="search-books">
             <div className="search-books-bar">
-                <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>
+
+                <Link to='/' className="close-search" >
                     Close
-                </button>
+                </Link>
+
                 <div className="search-books-input-wrapper">
                     <input 
                         type="text" 
