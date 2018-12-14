@@ -32,7 +32,9 @@ class BooksApp extends React.Component {
           bookList={this.state.bookList}
           selectOption={this.selectOption}
         /> */}
-        <SearchPage/>
+        <SearchPage
+          selectOption={this.selectOption}
+        />
       </div>
     )
   }

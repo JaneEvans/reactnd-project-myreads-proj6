@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
-import * as BooksAPI from './BooksAPI';
+// import * as BooksAPI from './BooksAPI';
 
 class Books extends Component {
 
     render() {
         const {book, selectOption} = this.props
-        let ImgURL = book.imageLinks ? book.imageLinks.Thumbnail: '';
+        let ImgURL = book.imageLinks ? book.imageLinks.thumbnail: '';
         let Authors = book.authors ? book.authors: '';
+        let bookShelf = book.shelf ? book.shelf : 'none';
+
         return (
             <div className="book">
                 <div className="book-top">
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${ImgURL})` }} />
                     <div className="book-shelf-changer">
-                        <select onChange={(e) => {selectOption(book, e.target.value)}} defaultValue='move'>
+                        <select onChange={(e) => {selectOption(book, e.target.value)}} defaultValue={bookShelf}>
                             <option value="move" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>

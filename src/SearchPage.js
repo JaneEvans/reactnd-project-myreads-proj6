@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import * as BooksAPI from './BooksAPI';
 import Books from './Books';
-import escapeRegExp from 'escape-string-regexp';
-import sortBy from 'sort-by';
+// import escapeRegExp from 'escape-string-regexp';
+// import sortBy from 'sort-by';
 
 class SearchPage extends Component {
     state = {
@@ -29,8 +29,11 @@ class SearchPage extends Component {
 
     render() {
         const {query, searchedBookList} = this.state;
-        let bookList = searchedBookList.items ? [] : searchedBookList;
+        const {selectOption} = this.props;
 
+        let bookList = searchedBookList.error ? [] : searchedBookList;
+
+        console.log(searchedBookList);
         return (
         <div className="search-books">
             <div className="search-books-bar">
@@ -52,6 +55,7 @@ class SearchPage extends Component {
                                         <li key={searchedBook.id}>
                                             <Books
                                                 book={searchedBook}
+                                                selectOption={selectOption}
                                             />
                                         </li>))}
               </ol>
