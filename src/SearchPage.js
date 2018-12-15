@@ -30,9 +30,9 @@ class SearchPage extends Component {
 
     render() {
         const {query, searchedBookList} = this.state;
-        const {selectOption} = this.props;
+        const {bookList, selectOption} = this.props;
 
-        let bookList = searchedBookList.error ? [] : searchedBookList;
+        let searchedBooks = searchedBookList.error ? [] : searchedBookList;
 
         console.log(searchedBookList);
         return (
@@ -54,13 +54,23 @@ class SearchPage extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-                {bookList.map((searchedBook) => (
-                                        <li key={searchedBook.id}>
-                                            <Books
-                                                book={searchedBook}
-                                                selectOption={selectOption}
-                                            />
-                                        </li>))}
+                {searchedBooks.map(
+                    
+                    (searchedBook) => {
+                        bookList.map(book => (
+                            book.id === searchedBook.id ? searchedBook.shelf = book.shelf : ''
+                        )) 
+                        
+                        return (
+                                <li key={searchedBook.id}>
+                                    <Books
+                                        book={searchedBook}
+                                        selectOption={selectOption}
+                                    />
+                                </li>
+                            )
+                    })
+                }
               </ol>
             </div>
         </div>

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import Books from './Books';
 import {Link} from 'react-router-dom';
-// import * as BooksAPI from './BooksAPI';
-
 
 class MainPage extends Component {
 
